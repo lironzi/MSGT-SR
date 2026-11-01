@@ -7,7 +7,7 @@
 *Image and Vision Computing* (under review)
 
 [Dataset](https://drive.google.com/drive/folders/1BPBubCvXIbHSIz8xAgstLAkuPvYLqvf8) ·
-[Pretrained model](https://github.com/<USER>/MSGT-SR/releases) ·
+[Pretrained model](https://github.com/lironzi/MSGT-SR/releases) ·
 [Citation](#citation)
 
 </div>
@@ -103,7 +103,7 @@ to about 3 HR pixels.
 ### Installation
 
 ```bash
-git clone https://github.com/<USER>/MSGT-SR.git
+git clone https://github.com/lironzi/MSGT-SR.git
 cd MSGT-SR
 pip install torch torchvision          # choose the build for your CUDA: https://pytorch.org
 pip install -r requirements.txt
@@ -136,7 +136,7 @@ anti-aliasing. Each session is standardised with its own statistics.
 
 ### Pretrained model
 
-Download `epoch_32.pth` from [Releases](https://github.com/<USER>/MSGT-SR/releases) into `runs/paper/`.
+Download `epoch_32.pth` from [Releases](https://github.com/lironzi/MSGT-SR/releases) into `runs/paper/`.
 
 ```python
 import torch
