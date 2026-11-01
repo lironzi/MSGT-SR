@@ -1,0 +1,34 @@
+# ---------------------------------------------------------------------------
+# Full MSGT-SR, increasing scale weights 0.1:0.3:0.6 (x3)
+# Ablation study. Identical to configs/msgtsr.yaml except
+# for the lines marked  <-- ABLATION . L1 scale weights always sum to 3, so the VGG term
+# (alpha) keeps the same relative weight in every run.
+# ---------------------------------------------------------------------------
+run_name: "A2_full_w039_18"
+seed: 0
+num_channels: 64
+alpha: 0.05              # VGG perceptual loss weight
+lr: 0.0001
+batch_size: 64           # effective batch (optimiser step every 64 samples); same for all runs
+accum_steps: 1           # 1 = no accumulation. If GPU 0 runs out of memory, set 2 (64 = 2 x 32) in ALL six configs
+num_epochs: 50
+model: "MSGNet_w_F_Full"
+weights: [0.3, 0.9, 1.8]      # <-- ABLATION (loss weights)
+stn_enable: 1
+train_dataset:
+  dataPath: "Data"
+  scale_factor: 8
+  HR_downsample: 2
+  original_size: [256,336]
+  LR_upsample: 0
+  Sessions: ["111022_1","111022_2","20230908_1"]
+  numPermutationPerImage: 2000
+
+val_dataset:
+  dataPath: "Data"
+  scale_factor: 8
+  HR_downsample: 2
+  original_size: [256,336]
+  LR_upsample: 0
+  Sessions: ["301121_1"]
+  numPermutationPerImage: 500

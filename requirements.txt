@@ -1,0 +1,16 @@
+# PyTorch: install the build matching the machine's CUDA first, e.g. (see https://pytorch.org):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+# Tested with torch 2.1 (original training) and torch 2.x. Python 3.8-3.11.
+torch>=1.13
+torchvision>=0.14
+numpy<2
+scipy
+scikit-image
+tifffile
+pyyaml
+einops
+timm
+tqdm
+matplotlib
+pillow
+opencv-python-headless

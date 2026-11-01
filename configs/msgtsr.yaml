@@ -1,0 +1,32 @@
+# ---------------------------------------------------------------------------
+# MSGT-SR: uniform scale weights [1,1,1], STN on, VGG perceptual weight 0.05.
+# Same setting as configs/ablation/A1_full_w111.yaml.
+# ---------------------------------------------------------------------------
+run_name: "MSGT-SR"
+seed: 0
+num_channels: 64
+alpha: 0.05              # VGG perceptual loss weight
+lr: 0.0001
+batch_size: 64           # effective batch (optimiser step every 64 samples); same for all runs
+accum_steps: 1           # 1 = no accumulation. If GPU 0 runs out of memory, set 2 (64 = 2 x 32) in ALL six configs
+num_epochs: 50
+model: "MSGNet_w_F_Full"
+weights: [1, 1, 1]
+stn_enable: 1
+train_dataset:
+  dataPath: "Data"
+  scale_factor: 8
+  HR_downsample: 2
+  original_size: [256,336]
+  LR_upsample: 0
+  Sessions: ["111022_1","111022_2","20230908_1"]
+  numPermutationPerImage: 2000
+
+val_dataset:
+  dataPath: "Data"
+  scale_factor: 8
+  HR_downsample: 2
+  original_size: [256,336]
+  LR_upsample: 0
+  Sessions: ["301121_1"]
+  numPermutationPerImage: 500
